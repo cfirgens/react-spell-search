@@ -10,11 +10,11 @@ class App extends Component {
     super(props);
     this.state = {};
 
-    this.performSearch();
+    this.performSearch('magic');
   }
 
-  performSearch() {
-    const urlString = 'http://www.dnd5eapi.co/api/spells/?name=magic';
+  performSearch(searchTerm) {
+    const urlString = `http://www.dnd5eapi.co/api/spells/?name=${searchTerm}`;
     $.ajax({
       url: urlString,
       success: searchResults => {

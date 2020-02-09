@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {};
 
-    this.performSearch('magic');
+    this.performSearch();
   }
 
   performSearch(searchTerm) {
@@ -27,13 +27,22 @@ class App extends Component {
     });
   }
 
+  searchChangeHandler(event) {
+    const searchTerm = event.target.value;
+    this.performSearch(searchTerm);
+  }
+
   render() {
     return (
       <div className="App">
         <Banner />
         <div className="wrapper">
           <div className="search_box">
-            <input type="text" placeholder="Search for a spell!" />
+            <input
+              type="text"
+              placeholder="Search for a spell!"
+              onChange={this.searchChangeHandler.bind(this)}
+            />
             <i className="fa fa-search" />
           </div>
         </div>

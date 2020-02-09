@@ -6,7 +6,7 @@ class Banner extends Component {
     return (
       <div id="banner" className="banner">
         <div id="icon" className="icon">
-          <img src="tome-icon.png" alt="DnD Icon" />
+          <img src="spell-icon.png" alt="DnD Icon" />
         </div>
         <div id="title" className="title">
           <h2>Spell Search</h2>

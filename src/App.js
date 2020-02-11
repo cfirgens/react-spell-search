@@ -10,34 +10,28 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-
-    this.performSearch();
-  }
-
-  performSearch(searchTerm) {
-    const urlString = `http://www.dnd5eapi.co/api/spells/?name=${searchTerm}`;
-    $.ajax({
-      url: urlString,
-      success: searchResults => {
-        var spellsRow = [];
-        const results = searchResults.results;
-        console.log(results);
-        results.forEach(spell => {
-          const spellRow = <Spells key={spell.index} spell={spell} />;
-          spellsRow.push(spellRow);
-        });
-        this.setState({ rows: spellsRow });
-      },
-      error: (xhr, status, err) => {
-        console.error('Failed to fetch data');
-      }
-    });
+    this.getSpell('');
   }
 
   searchChangeHandler(event) {
     const searchTerm = event.target.value;
-    this.performSearch(searchTerm);
+    this.getSpell(searchTerm);
   }
+
+  getSpell = async searchTerm => {
+    var spellsRow = [];
+    const response = await fetch(
+      `https://api.open5e.com/spells/?search=${searchTerm}`
+    );
+    const data = await response.json();
+    console.log(data);
+    console.log(data.name);
+    data.results.map(spell => {
+      const spellRow = <Spells key={spell.index} spell={spell} />;
+      spellsRow.push(spellRow);
+    });
+    this.setState({ rows: spellsRow });
+  };
 
   render() {
     return (

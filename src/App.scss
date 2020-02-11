@@ -55,4 +55,10 @@ img {
 }
 .spellDiv {
   display: flex;
+  flex: 1;
+
+  .schoolImage {
+    width: 100px;
+    height: 100%;
+  }
 }

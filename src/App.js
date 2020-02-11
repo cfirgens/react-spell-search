@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.scss';
 import Banner from './components/Banner';
 import 'font-awesome/css/font-awesome.min.css';
-import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Spells from './components/Spells';
 

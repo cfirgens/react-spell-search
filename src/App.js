@@ -4,6 +4,7 @@ import Banner from './components/Banner';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Spells from './components/Spells';
+import SpellHeader from './components/SpellHeader';
 
 class App extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class App extends Component {
             <i className="fa fa-search" />
           </div>
         </div>
+        <SpellHeader />
         {this.state.rows}
       </div>
     );
